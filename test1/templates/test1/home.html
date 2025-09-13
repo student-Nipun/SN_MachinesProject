@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shree Narayan Machines</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+
+  <style>
+    .card {
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      background: white;
+      height: auto;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      border: none;
+      border-radius: 10px 10px 0 0 !important;
+      padding: 0.75rem;
+    }
+
+    .icon-container {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .icon-container i {
+      color: white;
+    }
+
+    .card-title {
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .tech-spec-card .card-header {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+    }
+
+    .applications-card .card-header {
+      background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    }
+
+    .spec-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      font-weight: 500;
+      color: #666;
+    }
+
+    .spec-value {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .application-list {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .app-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #333;
+      padding: 0.25rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'test1/navbar.html'%}
+
+  <!-- Product name code begin -->
+  <div class="container text-center my-5">
+    <h1 class="alert alert-primary">Horizontal Flow Wrap Machine</h1>
+  </div>
+  <!-- Product name code begin -->
+
+  <!-- carousel coding begins -->
+
+  <div class="container text-center bg-secondary mt-4 mb-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2023/5/311150936/SW/XG/WO/9895391/hotel-soap-packing-machine-1000x1000.jpg"
+            class="d-block w-100" alt="..." style="object-fit: contain; height: 500px" />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2023/5/311150908/UG/KN/PB/9895391/hotel-soap-packing-machine-125x125.jpg"
+            class="d-block w-100" alt="..." style="object-fit: contain; height: 500px" />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2023/5/311150907/JD/KT/JM/9895391/hotel-soap-packing-machine-1000x1000.jpg"
+            class="d-block w-100" alt="..." style="object-fit: contain; height: 500px" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Carousel section ends here -->
+
+
+  <!-- Product info code begins -->
+  <div class="container my-3 mb-5">
+    <div class="row g-3">
+      <!-- Key Features Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header py-2">
+            <div class="d-flex align-items-center">
+              <div class="icon-container me-2" style="width: 40px; height: 40px">
+                <i class="fas fa-star" style="font-size: 1rem"></i>
+              </div>
+              <h6 class="card-title mb-0">Key Features</h6>
+            </div>
+          </div>
+          <div class="card-body py-2">
+            <div class="application-list">
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span><strong>Material Grade:</strong> SS</span>
+              </div>
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span><strong>Phase:</strong> Single</span>
+              </div>
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span><strong>Condition</strong> New</span>
+              </div>
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span><strong>Minimum order quantity</strong> 1 Piece</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Specification Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card tech-spec-card">
+          <div class="card-header py-2">
+            <div class="d-flex align-items-center">
+              <div class="icon-container me-2" style="width: 40px; height: 40px">
+                <i class="fas fa-cogs" style="font-size: 1rem"></i>
+              </div>
+              <h6 class="card-title mb-0">Technical Specification</h6>
+            </div>
+          </div>
+          <div class="card-body py-2">
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Automation Grade</span>
+                <span class="spec-value">Automatic</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Power</span>
+                <span class="spec-value">Electric</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Finish:</span>
+                <span class="spec-value">240v</span>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+
+      <!-- Applications Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card applications-card">
+          <div class="card-header py-2">
+            <div class="d-flex align-items-center">
+              <div class="icon-container me-2" style="width: 40px; height: 40px">
+                <i class="fas fa-tasks" style="font-size: 1rem"></i>
+              </div>
+              <h6 class="card-title mb-0">Applications</h6>
+            </div>
+          </div>
+          <div class="card-body py-2">
+            <div class="application-list">
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span>Pouch Packing Of Biscuits</span>
+              </div>
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span>Soaps Chikki</span>
+              </div>
+              <div class="app-item">
+                <i class="bi bi-square text-primary me-2"></i>
+                <span>Other different type of Products</span>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Product info code ends -->
+
+  <!-- Product Videos code begins -->
+  <div id="testimonial">
+    {% include 'test1/Videos.html'%}
+  </div>
+  <!-- Product Videos code ends -->
+
+  <!-- Reviews code begins -->
+
+  {%include 'test1/reviews.html'%}
+
+  <!-- Reviews code ends -->
+
+  <!-- Contanct code url begins-->
+  {%include 'test1/contactPractice.html'%}
+
+  <!-- Contanct code url ends-->
+
+  <!-- footer code url begins-->
+  {%include 'test1/footer.html'%}
+
+  <!-- Footer code url ends-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

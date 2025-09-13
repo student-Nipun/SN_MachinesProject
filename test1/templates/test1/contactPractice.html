@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact us</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .btn-custom {
+        background-color: #9e1000 !important;
+        border: 1px solid #9e1000 !important;
+        color: white !important;
+      }
+
+      .btn-custom:hover {
+        background-color: white !important;
+        color: #9e1000 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--Contact and form code begins-->
+    <h1 id="msg" class="text-center"></h1>
+    <div
+      class="container-fluid"
+      style="background-color: #2f333a; padding: 20px 0"
+    >
+      <div class="container" style="width: 80%; margin: auto; flex-wrap: wrap">
+        <div class="row">
+          <div class="col-md-6" style="color: white; padding: 1% 3%">
+            <h2>Contact Us</h2>
+            <div style="display: flex">
+              <i class="bi bi-geo-alt-fill text-danger"></i>
+              <div style="font-size: 1.2rem; padding: 0 4%">
+                Ravi Kumar(Manager)
+                <div>Shree Narayan Machines</div>
+                25,Bhopal Colony,Behind Khushi Garden, Jeevan Nagar Faridabad,
+                Faridabad - 121003, Haryana, India
+              </div>
+            </div>
+            <div style="display: flex" class="mt-2">
+              <i class="bi bi-envelope-fill text-danger"></i>
+              <div style="font-size: 1.2rem; padding: 0 4%">
+                <a
+                  href="mailto:shreenarayanmachines@gmail.com"
+                  style="text-decoration: none; color: white"
+                  >Send Email</a
+                >
+              </div>
+            </div>
+            <div style="display: flex" class="mt-2">
+              <i class="bi bi-telephone-fill text-danger"></i>
+              <div style="font-size: 1.2rem; padding: 0 4%">
+                <a
+                  href="tel:+919540931473"
+                  style="text-decoration: none; color: white"
+                  >+91-9540931473</a
+                >
+              </div>
+            </div>
+            <div class="d-flex fw-bolder mt-2">
+              <div style="font-size: 1.2rem">Share:</div>
+              <div style="width: 25%" class="d-flex align-items-center">
+                <a
+                  href="#"
+                  style="text-decoration: none; color: white; font-size: 1.2rem"
+                  class="ms-3"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a
+                  href="#"
+                  style="text-decoration: none; color: white; font-size: 1.2rem"
+                  class="ms-3"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a
+                  href="#"
+                  style="text-decoration: none; color: white; font-size: 1.2rem"
+                  class="ms-3"
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6"
+            style="
+              background-color: white;
+              border: 1px solid white;
+              border-radius: 5px;
+            "
+          >
+            <div style="padding: 6% 7%">
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="requirements" class="form-label"
+                    >Describe your requirements</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="requirements"
+                    rows="3"
+                    placeholder="I would like to discuss my requirements regarding.."
+                    name="requirements"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="phoneNumber" class="form-label"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phoneNumber"
+                    placeholder="Enter your number"
+                    name="mobileNo"
+                    pattern="[0-9]{10}"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="userName" class="form-label"
+                    >Enter your name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="userName"
+                    placeholder="Enter your name"
+                    name="name"
+                    required
+                  />
+                </div>
+
+                <input
+                  type="submit"
+                  class="btn btn-custom px-4 py-2"
+                  id="sub"
+                  value="Submit"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Contact and form code ends-->
+
+    <script>
+      let form = document.querySelector("#contactForm");
+      let submitBtn = document.querySelector("#sub");
+      let msgDiv = document.querySelector("#msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Basic form validation
+        let name = document.querySelector("#userName").value.trim();
+        let phone = document.querySelector("#phoneNumber").value.trim();
+        let requirements = document.querySelector("#requirements").value.trim();
+
+        if (!name || !phone || !requirements) {
+          msgDiv.innerHTML =
+            '<div class="alert alert-warning">Please fill all fields!</div>';
+          return;
+        }
+
+        if (phone.length !== 10 || !/^[0-9]+$/.test(phone)) {
+          msgDiv.innerHTML =
+            '<div class="alert alert-warning">Please enter a valid 10-digit phone number!</div>';
+          return;
+        }
+
+        // Show loading state
+        submitBtn.value = "Sending...";
+        submitBtn.disabled = true;
+        msgDiv.innerHTML = "";
+
+        let data = new FormData(form);
+
+        fetch(
+          "https://script.google.com/macros/s/AKfycby4ADV3IqeXor6lzdgYKmGXgFefDy5PvTJstcXjXbXuLk8KSKYB_tbYfY9bH39jGBVi/exec",
+          {
+            method: "POST",
+            body: data,
+          }
+        )
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.text();
+          })
+          .then((data) => {
+            msgDiv.innerHTML =
+              '<div class="alert alert-success">' + data + "</div>";
+            form.reset(); // Clear form after successful submission
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            msgDiv.innerHTML =
+              '<div class="alert alert-danger">There was an error sending your message. Please try again.</div>';
+          })
+          .finally(() => {
+            // Reset button state
+            submitBtn.value = "Submit";
+            submitBtn.disabled = false;
+          });
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+c

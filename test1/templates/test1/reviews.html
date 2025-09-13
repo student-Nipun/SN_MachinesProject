@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratings & Reviews</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      .ratings-container {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        margin: 20px 0;
+      }
+
+      .main-rating {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #333;
+        margin: 0;
+      }
+
+      .rating-subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        margin-top: 5px;
+      }
+
+      .star-display {
+        font-size: 2rem;
+        color: #ffc107;
+        margin: 15px 0;
+      }
+
+      .star-display .far {
+        color: #e0e0e0;
+      }
+
+      .total-reviews {
+        color: #666;
+        font-size: 1.1rem;
+        margin-top: 10px;
+      }
+
+      .rating-bar-container {
+        margin: 20px 0;
+      }
+
+      .rating-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .rating-label {
+        min-width: 60px;
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      .rating-bar {
+        flex: 1;
+        height: 8px;
+        background-color: #e9ecef;
+        border-radius: 4px;
+        margin: 0 15px;
+        overflow: hidden;
+      }
+
+      .rating-fill {
+        height: 100%;
+        background-color: #28a745;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+
+      .rating-percentage {
+        min-width: 45px;
+        font-size: 0.9rem;
+        color: #666;
+        text-align: right;
+      }
+
+      .satisfaction-section {
+        margin-left: 40px;
+      }
+
+      .satisfaction-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 25px;
+      }
+
+      .satisfaction-item {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .satisfaction-circle {
+        width: 80px;
+        height: 80px;
+        border: 4px solid #28a745;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #28a745;
+      }
+
+      .satisfaction-label {
+        font-size: 0.95rem;
+        color: #666;
+        font-weight: 500;
+      }
+
+      .reviews-section {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        margin-top: 20px;
+      }
+
+      .review-card {
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 25px 0;
+        background: transparent;
+      }
+
+      .review-card:last-child {
+        border-bottom: none;
+      }
+
+      .reviewer-initial {
+        width: 50px;
+        height: 50px;
+        background: #007bff;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .reviewer-name {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 2px;
+      }
+
+      .reviewer-location {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .review-stars {
+        color: #ffc107;
+        font-size: 1.1rem;
+        margin: 8px 0;
+      }
+
+      .review-stars .far {
+        color: #e0e0e0;
+      }
+
+      .product-info {
+        margin-top: 15px;
+      }
+
+      .product-label {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .product-name {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .product-name:hover {
+        text-decoration: underline;
+      }
+
+      .review-attributes {
+        margin-top: 15px;
+      }
+
+      .attribute-tag {
+        display: inline-flex;
+        align-items: center;
+        background: #f8f9fa;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #666;
+        margin-right: 10px;
+        margin-bottom: 5px;
+      }
+
+      .attribute-tag i {
+        margin-left: 5px;
+        color: #28a745;
+      }
+
+      .view-more-btn {
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 6px;
+        font-weight: 600;
+        margin: 30px auto;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+
+      .view-more-btn:hover {
+        background: #c82333;
+      }
+
+      .header-row {
+        margin-bottom: 30px;
+      }
+
+      .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        margin: 0;
+      }
+
+      .view-all-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .view-all-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Some Changing in code */
+      div.ratings-container {
+        background: #f4f4f4;
+      }
+
+      .addBorder {
+        border-right: 1px solid #50505033;
+      }
+
+      div.reviews-section {
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container text-center px-4 py-4">
+      <!-- Header -->
+      <div class="row header-row align-items-center">
+        <div class="col">
+          <h1 class="page-title">Ratings & Reviews</h1>
+        </div>
+        <div class="col-auto">
+          <a
+            href="https://www.google.com/search?sca_esv=6efac4f7193162b0&rlz=1C1ONGR_enIN1016IN1016&sxsrf=AE3TifOwhoGhv-RQcSLpnYtQQ3aoZmmkig:1756035321091&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-TyqiosryoMdGcPyMhhedgwL0on8MGSaWMPnPwqqfK6E7de-CG3AYsd_MUogTNXP1IOUL_RnWhLbTy8HbVNsg2P-iF--o_LJlkNNUGjv8Uzif63VQ%3D%3D&q=Shree+Narayan+Machines+Reviews&sa=X&ved=2ahUKEwi-_5qsraOPAxXYzTgGHdhLLfAQ0bkNegQIHhAE&biw=1536&bih=695&dpr=1.25"
+            class="view-all-link"
+            >View All <i class="fas fa-chevron-right"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Main Ratings Section -->
+      <div class="ratings-container">
+        <div class="row">
+          <!-- Overall Rating -->
+          <div class="col-lg-3 col-md-4 addBorder">
+            <div class="text-center">
+              <div class="main-rating" id="overall-rating">5.0</div>
+              <div class="rating-subtitle">/ 5</div>
+              <div class="star-display" id="main-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <div class="total-reviews" id="total-reviews">14 Reviews</div>
+            </div>
+          </div>
+
+          <!-- Rating Breakdown -->
+          <div class="col-lg-5 col-md-8 addBorder">
+            <div class="rating-bar-container">
+              <div class="rating-row">
+                <div class="rating-label">5 Star</div>
+                <div class="rating-bar">
+                  <div class="rating-fill" style="width: 92%"></div>
+                </div>
+                <div class="rating-percentage">(92%)</div>
+              </div>
+              <div class="rating-row">
+                <div class="rating-label">4 Star</div>
+                <div class="rating-bar">
+                  <div class="rating-fill" style="width: 8%"></div>
+                </div>
+                <div class="rating-percentage">(8%)</div>
+              </div>
+              <div class="rating-row">
+                <div class="rating-label">3 Star</div>
+                <div class="rating-bar">
+                  <div class="rating-fill" style="width: 0%"></div>
+                </div>
+                <div class="rating-percentage">(0%)</div>
+              </div>
+              <div class="rating-row">
+                <div class="rating-label">2 Star</div>
+                <div class="rating-bar">
+                  <div class="rating-fill" style="width: 0%"></div>
+                </div>
+                <div class="rating-percentage">(0%)</div>
+              </div>
+              <div class="rating-row">
+                <div class="rating-label">1 Star</div>
+                <div class="rating-bar">
+                  <div class="rating-fill" style="width: 0%"></div>
+                </div>
+                <div class="rating-percentage">(0%)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Satisfaction -->
+          <div class="col-lg-4">
+            <div class="satisfaction-section">
+              <div class="satisfaction-title">User Satisfaction</div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="satisfaction-item">
+                    <div class="satisfaction-circle">100%</div>
+                    <div class="satisfaction-label">Response</div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="satisfaction-item">
+                    <div class="satisfaction-circle">100%</div>
+                    <div class="satisfaction-label">Quality</div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="satisfaction-item">
+                    <div class="satisfaction-circle">100%</div>
+                    <div class="satisfaction-label">Delivery</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Individual Reviews -->
+      <div class="reviews-section">
+        <div id="reviews-container">
+          <!-- Reviews will be populated here -->
+        </div>
+        <button class="view-more-btn" id="view-more-btn">
+          View More Reviews
+        </button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Mock reviews data matching the design
+      const reviewsData = [
+        {
+          id: 1,
+          name: "Sunil Mittal",
+          location: "Meham, Haryana",
+          initial: "S",
+          rating: 4,
+          productName: "Sanitary Napkin Making Machine",
+          attributes: ["Response"],
+        },
+        {
+          id: 2,
+          name: "Aasif Ansari",
+          location: "Meerut, Uttar Pradesh",
+          initial: "A",
+          rating: 4,
+          productName: "Sanitary Napkin Making Machine",
+          attributes: [],
+        },
+        {
+          id: 3,
+          name: "Onggazuma",
+          location: "Niger",
+          initial: "O",
+          rating: 1,
+          productName: "Tea Bag Packing Machine",
+          attributes: ["Response", "Quality", "Delivery"],
+        },
+        {
+          id: 4,
+          name: "Rajesh Kumar",
+          location: "Delhi, India",
+          initial: "R",
+          rating: 5,
+          productName: "Packaging Machine",
+          attributes: ["Quality"],
+        },
+        {
+          id: 5,
+          name: "Mohammed Ali",
+          location: "Mumbai, Maharashtra",
+          initial: "M",
+          rating: 5,
+          productName: "Industrial Equipment",
+          attributes: ["Response", "Delivery"],
+        },
+        {
+          id: 6,
+          name: "Priya Sharma",
+          location: "Bangalore, Karnataka",
+          initial: "P",
+          rating: 3,
+          productName: "Manufacturing Machine",
+          attributes: ["Quality"],
+        },
+      ];
+
+      // Generate star rating HTML
+      function generateStars(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="fas fa-star"></i>';
+          } else {
+            stars += '<i class="far fa-star"></i>';
+          }
+        }
+        return stars;
+      }
+
+      // Generate review card HTML
+      function createReviewCard(review) {
+        const attributeTags = review.attributes
+          .map(
+            (attr) =>
+              `<span class="attribute-tag">${attr} <i class="fas fa-thumbs-up"></i></span>`
+          )
+          .join("");
+
+        return `
+                <div class="review-card">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="reviewer-initial" style="background: ${getRandomColor()}">${
+          review.initial
+        }</div>
+                        </div>
+                        <div class="col">
+                            <div class="reviewer-name">${review.name}</div>
+                            <div class="reviewer-location">${
+                              review.location
+                            }</div>
+                            <div class="review-stars">${generateStars(
+                              review.rating
+                            )} (${review.rating})</div>
+                            <div class="product-info">
+                                <span class="product-label">Product Name :</span>
+                                <a href="#" class="product-name">${
+                                  review.productName
+                                }</a>
+                            </div>
+                            ${
+                              attributeTags
+                                ? `<div class="review-attributes">${attributeTags}</div>`
+                                : ""
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Get random color for initial circles
+      function getRandomColor() {
+        const colors = [
+          "#007bff",
+          "#28a745",
+          "#dc3545",
+          "#ffc107",
+          "#17a2b8",
+          "#6f42c1",
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      // Display reviews
+      function displayReviews() {
+        const container = document.getElementById("reviews-container");
+        container.innerHTML = "";
+
+        // Show first 3 reviews initially
+        const reviewsToShow = reviewsData.slice(0, 3);
+        reviewsToShow.forEach((review) => {
+          container.innerHTML += createReviewCard(review);
+        });
+      }
+
+      // View more functionality
+      document
+        .getElementById("view-more-btn")
+        .addEventListener("click", function () {
+          const container = document.getElementById("reviews-container");
+          container.innerHTML = "";
+
+          // Show all reviews
+          reviewsData.forEach((review) => {
+            container.innerHTML += createReviewCard(review);
+          });
+
+          // Hide the button after showing all
+          this.style.display = "none";
+        });
+
+      // Animate rating bars on load
+      function animateRatingBars() {
+        const bars = document.querySelectorAll(".rating-fill");
+        bars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.style.width = bar.style.width;
+          }, index * 100);
+        });
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        displayReviews();
+        setTimeout(animateRatingBars, 500);
+      });
+    </script>
+  </body>
+</html>
