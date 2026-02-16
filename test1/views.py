@@ -3,8 +3,8 @@ from .models import Contact_Query, Products
 from django.db.models import Q
 
 # Create your views here.
-def home(request):
-    return render(request,'test1/home.html')
+def index(request):
+    return render(request,'test1/index.html')
 
 def findProduct(request):
     if request.method == 'POST':
